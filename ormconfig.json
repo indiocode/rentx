@@ -1,0 +1,14 @@
+{
+	"synchronize": true,
+	"type": "postgres",
+	"port": 5432,
+	"host": "localhost",
+	"username": "docker",
+	"password": "rentx_db",
+	"database": "rentx_db",
+	"migrations": ["./src/database/migrations/*.ts"],
+	"entities": ["./src/modules/**/entities/*.ts"],
+	"cli": {
+		"migrationsDir": "./src/database/migrations"
+	}
+}
