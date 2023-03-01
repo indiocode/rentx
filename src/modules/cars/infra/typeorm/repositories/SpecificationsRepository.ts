@@ -2,10 +2,9 @@
 import type { Repository } from 'typeorm';
 import { getRepository } from 'typeorm';
 
-import Specification from '~/modules/cars/entities/Specification';
-
-import type { ICreateSpecificationDTO } from '../../dtos/ICreateSpecificationDTO';
-import type { ISpecificationsRepository } from '../ISpecificationsRepository';
+import type { ICreateSpecificationDTO } from '~/modules/cars/dtos/ICreateSpecificationDTO';
+import Specification from '~/modules/cars/infra/typeorm/entities/Specification';
+import type { ISpecificationsRepository } from '~/modules/cars/repositories/ISpecificationsRepository';
 
 export default class SpecificationsRepository
 	implements ISpecificationsRepository

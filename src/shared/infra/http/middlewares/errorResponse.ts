@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import type { NextFunction, Request, Response } from 'express';
 
-import AppError from '~/errors/AppError';
+import AppError from '~/shared/errors/AppError';
 
 export function errorResponse(
 	err: Error,

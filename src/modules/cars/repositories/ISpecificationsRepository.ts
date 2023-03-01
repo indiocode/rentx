@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
-import type Specification from '~/modules/cars/entities/Specification';
-
-import type { ICreateSpecificationDTO } from '../dtos/ICreateSpecificationDTO';
+import type { ICreateSpecificationDTO } from '~/modules/cars/dtos/ICreateSpecificationDTO';
+import type Specification from '~/modules/cars/infra/typeorm/entities/Specification';
 
 export interface ISpecificationsRepository {
 	create(data: ICreateSpecificationDTO): Promise<void>;

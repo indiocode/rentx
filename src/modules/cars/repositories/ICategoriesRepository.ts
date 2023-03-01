@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
-import type Category from '~/modules/cars/entities/Category';
-
-import type { ICreateCategoryDTO } from '../dtos/ICreateCategoryDTO';
+import type { ICreateCategoryDTO } from '~/modules/cars/dtos/ICreateCategoryDTO';
+import type Category from '~/modules/cars/infra/typeorm/entities/Category';
 
 export interface ICategoriesRepository {
 	findByName(name: string): Promise<Category>;

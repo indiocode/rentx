@@ -2,7 +2,7 @@
 import type { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
-import type { ICreateSpecificationDTO } from '../../dtos/ICreateSpecificationDTO';
+import type { ICreateSpecificationDTO } from '~/modules/cars/dtos/ICreateSpecificationDTO';
 
 import CreateSpecificationUseCase from './CreateSpecificationUseCase';
 

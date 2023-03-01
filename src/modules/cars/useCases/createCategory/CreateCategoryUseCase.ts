@@ -1,16 +1,15 @@
 /* eslint-disable no-unused-vars */
 import { inject, injectable } from 'tsyringe';
 
-import AppError from '~/errors/AppError';
-import type CategoriesRepository from '~/modules/cars/repositories/implementations/CategoriesRepository';
-
-import type { ICreateCategoryDTO } from '../../dtos/ICreateCategoryDTO';
+import type { ICreateCategoryDTO } from '~/modules/cars/dtos/ICreateCategoryDTO';
+import type { ICategoriesRepository } from '~/modules/cars/repositories/ICategoriesRepository';
+import AppError from '~/shared/errors/AppError';
 
 @injectable()
 export default class CreateCategoryUseCase {
 	constructor(
 		@inject('CategoriesRepository')
-		private categoriesRepository: CategoriesRepository,
+		private categoriesRepository: ICategoriesRepository,
 	) {}
 
 	async execute(data: ICreateCategoryDTO): Promise<void> {

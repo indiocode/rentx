@@ -1,9 +1,8 @@
 /* eslint-disable no-unused-vars */
 import { inject, injectable } from 'tsyringe';
 
+import type { IUsersRepository } from '~/modules/accounts/repositories/IUsersRepository';
 import { deleteFile } from '~/utils/file';
-
-import type UsersRepository from '../../repositories/implementations/UsersRepository';
 
 interface IRequest {
 	user_id: string;
@@ -14,7 +13,7 @@ interface IRequest {
 export default class UpdateUserAvatarUseCase {
 	constructor(
 		@inject('UsersRepository')
-		private usersRepository: UsersRepository,
+		private usersRepository: IUsersRepository,
 	) {}
 
 	async execute(data: IRequest): Promise<void> {

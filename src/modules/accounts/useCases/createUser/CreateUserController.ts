@@ -1,7 +1,7 @@
 import type { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
-import type { ICreateUserDTO } from '../../dtos/ICreateUserDto';
+import type { ICreateUserDTO } from '~/modules/accounts/dtos/ICreateUserDto';
 
 import CreateUserUseCase from './CreateUserUseCase';
 

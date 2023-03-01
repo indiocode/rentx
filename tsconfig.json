@@ -1,8 +1,12 @@
 {
 	"compilerOptions": {
-		"baseUrl": "./",
+		"baseUrl": ".",
 		"paths": {
 			"~/*": ["./src/*"]
+			// "~/modules/*": ["./src/modules/*"],
+			// "~/config/*": ["./src/config/*"],
+			// "~/shared/*": ["./src/shared/*"]
+			// "~/errors/*": ["./src/errors/*"]
 		},
 		"rootDirs": ["./src"],
 		"target": "ES2022",
@@ -14,5 +18,8 @@
 		"esModuleInterop": true,
 		"forceConsistentCasingInFileNames": true,
 		"skipLibCheck": true
-	}
+	},
+	"exclude": ["node_modules"],
+	"include": ["src/**/*"],
+	"references": [{ "path": "./tsconfig.node.json" }]
 }

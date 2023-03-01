@@ -1,7 +1,7 @@
 import type { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
-import type { ICreateCategoryDTO } from '../../dtos/ICreateCategoryDTO';
+import type { ICreateCategoryDTO } from '~/modules/cars/dtos/ICreateCategoryDTO';
 
 import CreateCategoryUseCase from './CreateCategoryUseCase';
 

@@ -2,9 +2,9 @@ import { Router } from 'express';
 import multer from 'multer';
 
 import upload from '~/config/upload';
-import { ensureAthenticated } from '~/middlewares/ensureAuthenticated';
 import CreateUserController from '~/modules/accounts/useCases/createUser/CreateUserController';
 import UpdateUserAvatarController from '~/modules/accounts/useCases/updateUserAvatar/UpdateUserAvatarController';
+import { ensureAthenticated } from '~/shared/infra/http/middlewares/ensureAuthenticated';
 
 const usersRoutes = Router();
 

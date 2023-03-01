@@ -1,15 +1,14 @@
 /* eslint-disable no-unused-vars */
 import { inject, injectable } from 'tsyringe';
 
-import type Category from '~/modules/cars/entities/Category';
-
-import type CategoriesRepository from '../../repositories/implementations/CategoriesRepository';
+import type Category from '~/modules/cars/infra/typeorm/entities/Category';
+import type { ICategoriesRepository } from '~/modules/cars/repositories/ICategoriesRepository';
 
 @injectable()
 export default class ListCategoriesUseCase {
 	constructor(
 		@inject('CategoriesRepository')
-		private categoriesRepository: CategoriesRepository,
+		private categoriesRepository: ICategoriesRepository,
 	) {}
 
 	async execute(): Promise<Category[]> {

@@ -3,10 +3,9 @@ import { compare } from 'bcrypt';
 import { sign } from 'jsonwebtoken';
 import { inject, injectable } from 'tsyringe';
 
-import AppError from '~/errors/AppError';
-
-import type { IAuthenticateUserDto } from '../../dtos/IAuthenticateUserDto';
-import type UsersRepository from '../../repositories/implementations/UsersRepository';
+import type { IAuthenticateUserDto } from '~/modules/accounts/dtos/IAuthenticateUserDto';
+import type { IUsersRepository } from '~/modules/accounts/repositories/IUsersRepository';
+import AppError from '~/shared/errors/AppError';
 
 const SECRET_KEY: string = '45187df8371c96e7355d309a935650e86c7e1f6e';
 
@@ -22,7 +21,7 @@ interface IResponse {
 export default class AuthenticateUserUseCase {
 	constructor(
 		@inject('UsersRepository')
-		private usersRepository: UsersRepository,
+		private usersRepository: IUsersRepository,
 	) {}
 
 	async execute(data: IAuthenticateUserDto): Promise<IResponse> {

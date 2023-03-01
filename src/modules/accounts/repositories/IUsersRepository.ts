@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 
-import type { ICreateUserDTO } from '../dtos/ICreateUserDto';
-import type User from '../entities/User';
+import type { ICreateUserDTO } from '~/modules/accounts/dtos/ICreateUserDto';
+import type User from '~/modules/accounts/infra/typeorm/entities/User';
 
 export interface IUsersRepository {
 	create(data: ICreateUserDTO): Promise<void>;

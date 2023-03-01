@@ -1,16 +1,15 @@
 /* eslint-disable no-unused-vars */
 import { inject, injectable } from 'tsyringe';
 
-import AppError from '~/errors/AppError';
-
-import type { ICreateSpecificationDTO } from '../../dtos/ICreateSpecificationDTO';
-import type SpecificationsRepository from '../../repositories/implementations/SpecificationsRepository';
+import type { ICreateSpecificationDTO } from '~/modules/cars/dtos/ICreateSpecificationDTO';
+import type { ISpecificationsRepository } from '~/modules/cars/repositories/ISpecificationsRepository';
+import AppError from '~/shared/errors/AppError';
 
 @injectable()
 export default class CreateSpecificationUseCase {
 	constructor(
 		@inject('SpecificationsRepository')
-		private specificationsRepository: SpecificationsRepository,
+		private specificationsRepository: ISpecificationsRepository,
 	) {}
 
 	async execute(data: ICreateSpecificationDTO): Promise<void> {

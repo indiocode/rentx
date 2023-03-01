@@ -1,7 +1,7 @@
 import type { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
-import type { IAuthenticateUserDto } from '../../dtos/IAuthenticateUserDto';
+import type { IAuthenticateUserDto } from '~/modules/accounts/dtos/IAuthenticateUserDto';
 
 import AuthenticateUserUseCase from './AuthenticateUserUseCase';
 
