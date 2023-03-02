@@ -1,15 +1,16 @@
 /* eslint-disable no-unused-vars */
 
+import { inject, injectable } from 'tsyringe';
+
+import type { ICreateCarDTO } from '~/modules/cars/dtos/ICreateCarDTO';
+import type Car from '~/modules/cars/infra/typeorm/entities/Car';
+import type { ICarsRepository } from '~/modules/cars/repositories/ICarsRepository';
 import AppError from '~/shared/errors/AppError';
 
-import type { ICreateCarDTO } from '../../dtos/ICreateCarDTO';
-import type Car from '../../infra/typeorm/entities/Car';
-import type { ICarsRepository } from '../../repositories/ICarsRepository';
-
-// @injectable()
+@injectable()
 export default class CreateCarUseCase {
 	constructor(
-		// @inject('CarsRepository')
+		@inject('CarsRepository')
 		private carsRepository: ICarsRepository,
 	) {}
 

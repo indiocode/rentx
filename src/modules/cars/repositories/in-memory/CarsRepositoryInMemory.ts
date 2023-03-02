@@ -1,8 +1,8 @@
 import { randomUUID } from 'crypto';
 
-import type { ICreateCarDTO } from '../../dtos/ICreateCarDTO';
-import Car from '../../infra/typeorm/entities/Car';
-import type { ICarsRepository } from '../ICarsRepository';
+import type { ICreateCarDTO } from '~/modules/cars/dtos/ICreateCarDTO';
+import Car from '~/modules/cars/infra/typeorm/entities/Car';
+import type { ICarsRepository } from '~/modules/cars/repositories/ICarsRepository';
 
 export default class CarsRepositoryInMemory implements ICarsRepository {
 	cars: Car[] = [];

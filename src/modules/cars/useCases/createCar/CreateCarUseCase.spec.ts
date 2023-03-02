@@ -1,8 +1,7 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 
+import CarsRepositoryInMemory from '~/modules/cars/repositories/in-memory/CarsRepositoryInMemory';
 import AppError from '~/shared/errors/AppError';
-
-import CarsRepositoryInMemory from '../../repositories/in-memory/CarsRepositoryInMemory';
 
 import CreateCarUseCase from './CreateCarUseCase';
 
