@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-vars */
 import type { Repository } from 'typeorm';
-import { getRepository } from 'typeorm';
 
 import type { ICreateSpecificationDTO } from '~/modules/cars/dtos/ICreateSpecificationDTO';
 import Specification from '~/modules/cars/infra/typeorm/entities/Specification';
 import type { ISpecificationsRepository } from '~/modules/cars/repositories/ISpecificationsRepository';
+import { AppDataSource } from '~/shared/infra/typeorm';
 
 export default class SpecificationsRepository
 	implements ISpecificationsRepository
@@ -12,7 +12,7 @@ export default class SpecificationsRepository
 	private repository: Repository<Specification>;
 
 	constructor() {
-		this.repository = getRepository(Specification);
+		this.repository = AppDataSource.getRepository(Specification);
 	}
 
 	async create(data: ICreateSpecificationDTO): Promise<void> {
@@ -22,6 +22,6 @@ export default class SpecificationsRepository
 	}
 
 	async findByName(name: string): Promise<Specification> {
-		return await this.repository.findOne({ name });
+		return (await this.repository.findOneBy({ name })) as Specification;
 	}
 }

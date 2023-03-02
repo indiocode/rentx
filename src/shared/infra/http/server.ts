@@ -4,21 +4,22 @@ import 'reflect-metadata';
 import swaggerUI from 'swagger-ui-express';
 
 import '~/shared/container';
-import '~/shared/infra/typeorm';
-
+import { AppDataSource } from '~/shared/infra/typeorm';
 import swaggerFile from '~/swagger.json';
 
 import { errorResponse } from './middlewares/errorResponse';
 import { router } from './routes';
 
-const app = express();
+AppDataSource.initialize().then(() => {
+	const app = express();
 
-app.use(express.json());
+	app.use(express.json());
 
-app.use(router);
+	app.use(router);
 
-app.use(errorResponse);
+	app.use(errorResponse);
 
-app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerFile));
+	app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerFile));
 
-app.listen(3333, () => console.log('listening on port 3333'));
+	app.listen(3333, () => console.log('listening on port 3333'));
+});
