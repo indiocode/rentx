@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars */
-import { randomUUID } from 'crypto';
 import type { DataSource } from 'typeorm';
 import type { Seeder, SeederFactoryManager } from 'typeorm-extension';
 
@@ -13,13 +12,20 @@ export default class UserAdminSeeder implements Seeder {
 		const repository = dataSource.getRepository(User);
 
 		const user = repository.create({
-			id: randomUUID(),
 			name: 'admin',
 			email: 'admin@example.com',
 			password: 'admin',
 			isAdmin: true,
 		});
 
+		const userAlreadyExists: User = repository.findOneBy({
+			email: user.email,
+		}) as unknown as User;
+
+		if (userAlreadyExists) throw new Error('User already exists');
+
 		await repository.save(user);
+
+		console.log('Seed: User Admin created!');
 	}
 }

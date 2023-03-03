@@ -8,7 +8,9 @@ export default class CategoriesRepositoryInMemory
 	categories: Category[] = [];
 
 	async findByName(name: string): Promise<Category> {
-		return this.categories.find((caregory) => caregory.name === name);
+		return this.categories.find(
+			(caregory) => caregory.name === name,
+		) as Category;
 	}
 
 	async list(): Promise<Category[]> {

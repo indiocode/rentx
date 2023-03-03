@@ -18,3 +18,7 @@ const options: DataSourceOptions & SeederOptions = {
 };
 
 export const AppDataSource = new DataSource(options);
+
+export function createConnection({ host = 'database' }): Promise<DataSource> {
+	return AppDataSource.setOptions({ host }).initialize();
+}
