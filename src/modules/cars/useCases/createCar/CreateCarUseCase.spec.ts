@@ -1,5 +1,4 @@
-import { beforeEach, describe, expect, it } from 'vitest';
-
+/* eslint-disable no-undef */
 import CarsRepositoryInMemory from '~/modules/cars/repositories/in-memory/CarsRepositoryInMemory';
 import AppError from '~/shared/errors/AppError';
 

@@ -18,14 +18,12 @@ export default class UserAdminSeeder implements Seeder {
 			isAdmin: true,
 		});
 
-		const userAlreadyExists: User = repository.findOneBy({
-			email: user.email,
-		}) as unknown as User;
+		// const userAlreadyExists: User = repository.findOneBy({
+		// 	email: user.email,
+		// }) as unknown as User;
 
-		if (userAlreadyExists) throw new Error('User already exists');
+		// if (userAlreadyExists) throw new Error('User already exists');
 
 		await repository.save(user);
-
-		console.log('Seed: User Admin created!');
 	}
 }

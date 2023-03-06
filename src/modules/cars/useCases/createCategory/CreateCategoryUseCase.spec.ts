@@ -1,6 +1,4 @@
 /* eslint-disable no-undef */
-import { beforeEach, describe, expect, it } from 'vitest';
-
 import CategoriesRepositoryInMemory from '~/modules/cars/repositories/in-memory/CategoriesRepositoryInMemory';
 import AppError from '~/shared/errors/AppError';
 

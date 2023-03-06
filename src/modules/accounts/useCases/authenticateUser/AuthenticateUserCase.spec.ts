@@ -1,6 +1,4 @@
 /* eslint-disable no-undef */
-import { beforeEach, describe, expect, it } from 'vitest';
-
 import type { ICreateUserDTO } from '~/modules/accounts/dtos/ICreateUserDto';
 import UsersRepositoryInMemory from '~/modules/accounts/repositories/in-memory/UsersRepositoryInMemory';
 import CreateUserUseCase from '~/modules/accounts/useCases/createUser/CreateUserUseCase';

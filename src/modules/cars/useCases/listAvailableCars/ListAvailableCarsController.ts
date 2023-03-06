@@ -5,7 +5,7 @@ import type { IFilterCarDTO } from '~/modules/cars/dtos/IFilterCarDTO';
 
 import ListAvailableCarsUseCase from './ListAvailableCarsUseCase';
 
-export class ListAvailableCarsController {
+export default class ListAvailableCarsController {
 	async handle(request: Request, response: Response): Promise<Response> {
 		const data = request.query as IFilterCarDTO;
 

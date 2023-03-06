@@ -26,6 +26,7 @@ export default class CarsRepositoryInMemory implements ICarsRepository {
 	async findByLicensePlate(license_plate: string): Promise<Car> {
 		return this.cars.find((car) => car.license_plate === license_plate) as Car;
 	}
+
 	async findAvailable(data: IFilterCarDTO): Promise<Car[]> {
 		return this.cars.filter(
 			(car) =>
@@ -34,5 +35,9 @@ export default class CarsRepositoryInMemory implements ICarsRepository {
 				(data.category_id && car.category_id === data.category_id) ||
 				(data.name && car.name === data.name),
 		);
+	}
+
+	async findById(id: string): Promise<Car> {
+		return this.cars.find((car) => car.id === id) as Car;
 	}
 }

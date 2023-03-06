@@ -49,7 +49,7 @@ export class CreateCars1677681105115 implements MigrationInterface {
 					},
 					{
 						name: 'created_at',
-						type: 'timestamp',
+						type: 'date',
 						default: 'now()',
 					},
 				],
