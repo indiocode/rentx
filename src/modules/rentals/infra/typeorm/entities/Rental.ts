@@ -25,7 +25,7 @@ export default class Rental {
 	@Column({ type: 'varchar' })
 	user_id: string;
 
-	@Column({ type: 'date' })
+	@Column({ type: 'date', default: () => 'now()' })
 	start_date: Date;
 
 	@Column({ type: 'date', nullable: true })

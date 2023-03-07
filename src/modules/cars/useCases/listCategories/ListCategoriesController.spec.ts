@@ -12,7 +12,7 @@ let connection: DataSource;
 
 let server = app.listen(env.PORT);
 
-describe('Create Category Controller', () => {
+describe('List Categories Controller', () => {
 	beforeAll(async () => {
 		connection = await createConnection();
 
@@ -25,7 +25,7 @@ describe('Create Category Controller', () => {
 		server.close();
 	});
 
-	it('should be able to create a new category ', async () => {
+	it('should be able to list all categories', async () => {
 		const {
 			body: { token },
 		} = await request(server).post('/sessions').send({
@@ -33,7 +33,7 @@ describe('Create Category Controller', () => {
 			password: 'admin',
 		});
 
-		const { status } = await request(server)
+		await request(server)
 			.post('/categories')
 			.send({
 				name: 'Category Supertest',
@@ -43,27 +43,11 @@ describe('Create Category Controller', () => {
 				Authorization: `Bearer ${token}`,
 			});
 
-		expect(status).toBe(201);
-	});
+		const { status, body } = await request(server).get('/categories');
 
-	it('should not be able to create a new category with name exists', async () => {
-		const {
-			body: { token },
-		} = await request(server).post('/sessions').send({
-			email: 'admin@example.com',
-			password: 'admin',
-		});
-
-		const response = await request(server)
-			.post('/categories')
-			.send({
-				name: 'Category Supertest',
-				description: 'Category Supertest',
-			})
-			.set({
-				Authorization: `Bearer ${token}`,
-			});
-
-		expect(response.status).toBe(400);
+		expect(status).toBe(200);
+		expect(body.length).toBe(1);
+		expect(body[0]).toHaveProperty('id');
+		expect(body[0].name).toEqual('Category Supertest');
 	});
 });

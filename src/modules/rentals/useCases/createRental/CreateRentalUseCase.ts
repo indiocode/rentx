@@ -55,7 +55,7 @@ export default class CreateRentalUseCase {
 
 		const rental = await this.rentalsRepository.create(data);
 
-		// await this.carsRepository.updateAvailable(data.car_id, false);
+		await this.carsRepository.updateAvailable(data.car_id, false);
 
 		return rental;
 	}

@@ -8,4 +8,5 @@ export interface ICarsRepository {
 	findByLicensePlate(license_plate: string): Promise<Car>;
 	findAvailable(data: IFilterCarDTO): Promise<Car[]>;
 	findById(id: string): Promise<Car>;
+	updateAvailable(id: string, available: boolean): Promise<void>;
 }
