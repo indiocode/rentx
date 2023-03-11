@@ -1,5 +1,5 @@
-import dayjs from 'dayjs';
 /* eslint-disable no-undef */
+import dayjs from 'dayjs';
 
 import CarsRepositoryInMemory from '~/modules/cars/repositories/in-memory/CarsRepositoryInMemory';
 import RentalsRepositoryInMemory from '~/modules/rentals/repositories/in-memory/RentalsRepositoryInMemory';
